@@ -5,9 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 </head>
 <body>
-    <h1>Shafiullah About Page</h1>
+     <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="logo">Crazy Fast Food</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#order" class="order-btn">Order Now</a></li>
+        </ul>
+    </nav>
+      <!-- About Page -->
+      <section class="about" id="about">
+        <h2>About Crazy Fast Food</h2>
+        <p>Started in 2015, Crazy Fast Food was born out of a passion for great taste and lightning-fast service. We aim to bring delicious meals to your table with a crazy twist of fun and flavor.</p>
+
+        <h3>Mission & Vision</h3>
+        <p>To deliver high-quality fast food at record speed without compromising taste or freshness.</p>
+
+        <h3>Meet the Team</h3>
+        <div class="team">
+            <div class="member">
+                <img src="founder.jpg" alt="Founder">
+                <p>Alex Doe - Founder</p>
+            </div>
+            <div class="member">
+                <img src="chef.jpg" alt="Chef">
+                <p>Chef Lisa - Head Chef</p>
+            </div>
+        </div>
+
+        <h3>What Makes Us Special</h3>
+        <ul>
+            <li>Insanely fast delivery</li>
+            <li>Unique recipes & fresh ingredients</li>
+            <li>Great taste at great prices</li>
+        </ul>
+
+        <h3>Our Commitment</h3>
+        <p>We maintain high hygiene standards and are actively involved in local community food drives and sustainability efforts.</p>
+    </section>
+     <!-- Footer -->
+     <footer>
+        <p>&copy; 2025 Crazy Fast Food. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -5,9 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 </head>
 <body>
-    <h1>Currently you are on Contact Page</h1>
+     <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="logo">Crazy Fast Food</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#order" class="order-btn">Order Now</a></li>
+        </ul>
+    </nav>
+     <!-- Contact Page -->
+     <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone Number">
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+        <div class="business-info">
+            <p><strong>Address:</strong> 123 Fast Lane, Food City</p>
+            <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+            <p><strong>Email:</strong> support@crazyfastfood.com</p>
+        </div>
+
+        <div class="map">
+            <iframe src="https://maps.google.com/maps?q=New York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+        </div>
+
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+    </section>
+     <!-- Footer -->
+     <footer>
+        <p>&copy; 2025 Crazy Fast Food. All rights reserved.</p>
+    </footer>
 </body>
 </html>
