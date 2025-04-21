@@ -9,5 +9,7 @@ from .serializer import *
 def home(request):
     Student_objs = Student.objects.all()
     serializer = StudenSerializer(Student_objs, many = True)
+    print(serializer.data)
 
     return Response({'status' : 200, 'payload' : serializer.data})
+    
