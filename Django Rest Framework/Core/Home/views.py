@@ -12,4 +12,16 @@ def home(request):
     print(serializer.data)
 
     return Response({'status' : 200, 'payload' : serializer.data})
+
+@api_view(['POST'])
+def AddData(request):
+    # data = request.data
+    serializer = StudenSerializer(data = request.data)
+
+    if not serializer.is_valid():
+        print(serializer.errors)
+        return Response({'status' : 403, 'errors': serializer.errors , 'message' : 'Something went wrong'})
+    serializer.save()
+
+    return Response({'status' : 200, 'payLoad' : serializer.data, 'message' :'You sent this data'})
     
