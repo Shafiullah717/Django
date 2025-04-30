@@ -35,7 +35,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class studentApi(APIView):
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated] 
     def get(self, request):
         Student_objs = Student.objects.all()
         serializer = StudenSerializer(Student_objs, many = True)

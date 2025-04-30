@@ -17,6 +17,13 @@ class BlogApi(APIView):
         serializer = BlogSerializer(Blog_obj, many = True)
         return Response ({'status': 200, 'payload': serializer.data})
         pass
-    
+    def post(self, request):
+        data = request.data
+        serializer = BlogSerializer(data = request.data)
+        if not serializer.is_valid():
+          print(serializer.errors)
+          return Response({'status': 403, 'errors': serializer.errors, 'message': 'some thing went wrong'})
+        serializer.save()
+        return Response ({"status": 200, 'payload': serializer.data, 'message': "you sent this data" })
 
 
