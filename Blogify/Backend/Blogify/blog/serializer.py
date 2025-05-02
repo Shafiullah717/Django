@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .views import *
+from .models import *
 from django.contrib.auth.models import User
 
 
@@ -12,3 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user   
+    
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = '__all__'
+        
