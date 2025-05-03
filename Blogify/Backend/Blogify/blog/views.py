@@ -77,13 +77,48 @@ class postApi(APIView):
             'payload': serializer.data,
             'message': "data from get request"
         })
-        pass
+        pass 
     def post(self, request):
+        data = request.data
+        serializer = PostSerializer(data = request.data)
+    
+        if not serializer.is_valid():
+            print(serializer.errors)
+            return Response({'status' : 403, 'errors': serializer.errors , 'message' : 'Something went wrong'})
+        serializer.save()
+
+        return Response({'status' : 200, 'payLoad' : serializer.data, 'message' :'You sent this data'})
         pass
-    def put(self, request):
-        pass
-    def delete(self, request):
-        pass
+    
+
+class PostApiID(APIView):
+    def get(self, request, id):
+        try:
+            post_obj = Post.objects.get(id=id)
+            serializer = PostSerializer(post_obj)
+            return Response({'status': 200, 'payload': serializer.data})
+        except Post.DoesNotExist:
+            return Response({'status': 404, 'message': 'Post not found'})
+
+    def put(self, request, id):
+        try:
+            post_obj = Post.objects.get(id=id)
+            serializer = PostSerializer(post_obj, data=request.data)
+            if not serializer.is_valid():
+                return Response({'status': 400, 'errors': serializer.errors, 'message': 'Invalid data'})
+            serializer.save()
+            return Response({'status': 200, 'payload': serializer.data, 'message': 'Post updated successfully'})
+        except Post.DoesNotExist:
+            return Response({'status': 404, 'message': 'Post not found'})
+
+    def delete(self, request, id):
+        try:
+            post_obj = Post.objects.get(id=id)
+            post_obj.delete()
+            return Response({'status': 200, 'message': 'Post deleted successfully'})
+        except Post.DoesNotExist:
+            return Response({'status': 404, 'message': 'Post not found'})
+
 
 class hello(APIView):
     def get(self, request):
