@@ -4,24 +4,24 @@ import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 dark:focus:ring-neutral-400 disabled:opacity-50 dark:focus:ring-offset-neutral-900 disabled:pointer-events-none",
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
         default:
-          "bg-neutral-900 text-white hover:bg-neutral-700 dark:bg-neutral-50 dark:text-neutral-900",
+          "bg-gradient-to-r from-blue-600 to-purple-500 text-white hover:from-blue-700 hover:to-purple-600",
         destructive:
-          "bg-red-600 text-white hover:bg-red-700 dark:hover:bg-red-700",
+          "bg-red-500 text-white hover:bg-red-600",
         outline:
-          "border border-neutral-200 bg-transparent hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-100",
+          "border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white",
         ghost:
-          "bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:text-neutral-100 dark:hover:text-neutral-100",
-        link: "bg-transparent underline-offset-4 hover:underline text-neutral-900 dark:text-neutral-100",
+          "text-gray-300 hover:bg-gray-800 hover:text-white",
+        link: "text-blue-400 hover:text-blue-300 underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 py-2 px-4",
-        sm: "h-9 px-3 rounded-md",
-        lg: "h-11 px-8 rounded-md",
+        sm: "h-9 px-3 rounded-md text-sm",
+        lg: "h-11 px-8 rounded-md text-lg",
       },
     },
     defaultVariants: {
@@ -46,7 +46,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isLoading}
         {...props}
       >
-        {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+        {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin text-current" /> : null}
         {children}
       </button>
     );
