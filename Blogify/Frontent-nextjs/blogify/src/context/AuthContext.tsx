@@ -5,40 +5,48 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/', // Adjust to match your backend
+  baseURL: 'http://127.0.0.1:8000/api/',
 });
+
+interface User {
+  username: string;
+  // Add other user properties here if needed
+}
 
 interface AuthContextProps {
   token: string | null;
-  username: string | null;
-  login: (token: string, username: string) => void;
+  user: User | null;
+  login: (token: string, userData: User) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextProps>({
   token: null,
-  username: null,
+  user: null,
   login: () => {},
   logout: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
-  const [username, setUsername] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    const storedUsername = localStorage.getItem('username');
-    if (storedToken) setToken(storedToken);
-    if (storedUsername) setUsername(storedUsername);
+    const storedUser = localStorage.getItem('user');
+    
+    if (storedToken && storedUser) {
+      setToken(storedToken);
+      setUser(JSON.parse(storedUser));
+    }
   }, []);
 
-  const login = (newToken: string, newUsername: string) => {
+  const login = (newToken: string, userData: User) => {
     localStorage.setItem('token', newToken);
-    localStorage.setItem('username', newUsername);
+    localStorage.setItem('user', JSON.stringify(userData));
     setToken(newToken);
-    setUsername(newUsername);
+    setUser(userData);
     router.push('/dashboard');
   };
 
@@ -55,15 +63,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.error('Logout failed:', err);
     } finally {
       localStorage.removeItem('token');
-      localStorage.removeItem('username');
+      localStorage.removeItem('user');
       setToken(null);
-      setUsername(null);
+      setUser(null);
       router.push('/login');
     }
   };
 
   return (
-    <AuthContext.Provider value={{ token, username, login, logout }}>
+    <AuthContext.Provider value={{ token, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

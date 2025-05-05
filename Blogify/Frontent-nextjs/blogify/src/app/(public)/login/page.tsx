@@ -28,7 +28,7 @@ export default function LoginPage() {
       const { token, username } = res.data;
 
       if (token && username) {
-        login(token, username);
+        login(token, {username});
         toast.success('Welcome back!');
         router.push('/dashboard');
       } else {
