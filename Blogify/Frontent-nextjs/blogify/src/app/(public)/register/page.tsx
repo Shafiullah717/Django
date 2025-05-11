@@ -65,7 +65,7 @@ export default function RegisterPage() {
           <CardHeader>
             <div className="flex flex-col items-center space-y-2">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
-                Blogify
+              Likho
               </h1>
               <CardTitle className="text-3xl font-bold text-gray-100">
                 Create Account

@@ -67,7 +67,7 @@ export default function PostsPage() {
               <Home className="w-5 h-5" />
             </Button>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
-              Blogify Posts
+            Likho Posts
             </h1>
           </div>
           {token ? (
@@ -188,7 +188,7 @@ export default function PostsPage() {
                     <CardFooter className="flex justify-between items-center">
                       <Button
                         variant="ghost"
-                        onClick={() => router.push(`/posts/${post.id}`)}
+                        onClick={() => router.push(`/posts/`)}
                         className="text-blue-400 hover:bg-gray-700 gap-2"
                       >
                         Read More
@@ -243,7 +243,7 @@ export default function PostsPage() {
                     className="bg-gradient-to-r from-blue-600 to-purple-500 hover:from-blue-700 hover:to-purple-600 gap-2"
                   >
                     <UserPlus className="w-4 h-4" />
-                    Join Blogify
+                    Join Likho
                   </Button>
                 </div>
               </motion.div>
@@ -256,7 +256,7 @@ export default function PostsPage() {
       <footer className="bg-gray-900 border-t border-gray-700 py-12 mt-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-100">Blogify</h4>
+            <h4 className="text-lg font-semibold mb-4 text-gray-100">Likho</h4>
             <p className="text-gray-400">Empowering writers since 2024</p>
           </div>
           <div>
@@ -284,7 +284,7 @@ export default function PostsPage() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>© 2024 Blogify. All rights reserved.</p>
+          <p>© 2025 Likho by Shafiullah. All rights reserved.</p>
         </div>
       </footer>
     </div>

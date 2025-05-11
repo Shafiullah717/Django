@@ -15,6 +15,7 @@ interface Post {
   created_at: string;
 }
 
+
 export default function Home() {
   const { token } = useAuth();
   const router = useRouter();
@@ -51,7 +52,7 @@ export default function Home() {
       <header className="bg-gray-900 border-b border-gray-700 lg:hidden">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
-            Blogify
+          Likho
           </h1>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger aria-label="Open menu">
@@ -64,7 +65,7 @@ export default function Home() {
               <div className="flex flex-col h-full p-6">
                 <div className="flex justify-between items-center mb-8">
                   <h2 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
-                    Blogify
+                  Likho
                   </h2>
                   <SheetClose asChild>
                     <Button
@@ -136,7 +137,7 @@ export default function Home() {
       <header className="bg-gray-900 border-b border-gray-700 hidden lg:block">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
-            Blogify
+          Likho
           </h1>
           <div className="flex gap-6 items-center">
             <a href="/posts" className="text-gray-300 hover:text-blue-400 transition-colors">Browse Posts</a>
@@ -196,7 +197,7 @@ export default function Home() {
                   onClick={() => router.push('/register')}
                   className="border-gray-600 text-gray-300 hover:bg-gray-800 transition-transform hover:scale-105"
                 >
-                  Join Blogify
+                  Join Likho
                 </Button>
               )}
             </div>
@@ -303,7 +304,7 @@ export default function Home() {
       <footer className="bg-gray-900 border-t border-gray-700 py-8 md:py-12 mt-12 md:mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-100">Blogify</h4>
+            <h4 className="text-lg font-semibold mb-4 text-gray-100">Likho</h4>
             <p className="text-gray-400">Empowering writers since 2024</p>
           </div>
           <div>
@@ -331,7 +332,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} Blogify. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Likho by Shafiullah. All rights reserved.</p>
         </div>
       </footer>
     </div>
